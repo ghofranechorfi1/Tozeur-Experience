@@ -1,0 +1,321 @@
+/* ==========================================================================
+   TOZEUR EXPERIENCE — DIRECTION ARTISTIQUE MINIMALISTE & ÉDITORIALE
+   Inspirée des carnets de voyage sahariens, de la terre cuite et du lin brut
+   ========================================================================== */
+
+:root {
+  /* Palette Chromatique Naturelle */
+  --bg-sand: #F8F5EE;           /* Sable clair lin */
+  --bg-sand-soft: #F2ECE1;      /* Sable doux */
+  --bg-card: #FFFFFF;
+  --bg-dark: #1F1610;           /* Espresso / Terre d'argile sombre */
+  --bg-dark-accent: #15261F;    /* Vert palmeraie profond */
+  
+  --text-main: #241810;         /* Noir terreux */
+  --text-muted: #6E6157;        /* Sable gris doux */
+  --text-light: #9C8F85;        /* Muted caption */
+  
+  --accent-ochre: #C07026;      /* Ocre de Tozeur noble */
+  --accent-ochre-hover: #A35B19;
+  --accent-green: #1B4533;      /* Vert palmeraie élégant */
+  --accent-sand: #E7DDCE;       /* Ligne de séparation douce */
+
+  --border-subtle: rgba(43, 29, 20, 0.08);
+  --border-medium: rgba(43, 29, 20, 0.16);
+
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-sand);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-sand);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Typographie Éditoriale */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.tracking-loose {
+  letter-spacing: 0.18em;
+}
+
+.tracking-editorial {
+  letter-spacing: 0.05em;
+}
+
+/* Lignes de séparation fines */
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+
+.border-sand {
+  border-color: var(--accent-sand);
+}
+
+/* Boutons Minimalistes */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-ochre);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  border-color: var(--text-main);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background-color: #1A382A;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background-color: #26543F;
+  color: #FFFFFF;
+}
+
+.link-editorial {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-editorial::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.link-editorial:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Cartes d'Expériences */
+.editorial-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editorial-card:hover {
+  border-color: rgba(192, 112, 38, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -12px rgba(36, 24, 16, 0.08);
+}
+
+.editorial-card .img-zoom-wrap {
+  overflow: hidden;
+}
+
+.editorial-card .img-zoom-wrap img {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.editorial-card:hover .img-zoom-wrap img {
+  transform: scale(1.05);
+}
+
+/* Onglets Minimalistes */
+.tab-minimal {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tab-minimal:hover {
+  color: var(--text-main);
+}
+
+.tab-minimal.active {
+  color: var(--text-main);
+  border-bottom-color: var(--accent-ochre);
+  font-weight: 600;
+}
+
+/* Barre de Navigation */
+.nav-minimal {
+  background: rgba(248, 245, 238, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.nav-minimal.scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Modale de Détail & Lightbox */
+.modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-window {
+  transform: translateY(16px);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.modal-backdrop.active .modal-window {
+  transform: translateY(0);
+}
+
+/* Formulaires Épurés */
+.input-minimal {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-minimal:focus {
+  outline: none;
+  border-color: var(--accent-ochre);
+  box-shadow: 0 0 0 2px rgba(192, 112, 38, 0.12);
+}
+
+/* Discrète bulle WhatsApp minimaliste */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  background-color: #1A382A;
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(26, 56, 42, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.floating-whatsapp:hover {
+  background-color: var(--accent-ochre);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(192, 112, 38, 0.35);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-sand);
+}
+::-webkit-scrollbar-thumb {
+  background: #D3C7B5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-ochre);
+}

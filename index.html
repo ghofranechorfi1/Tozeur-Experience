@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tozeur Experience — Agence d'Excursions & Expéditions Sahariennes</title>
+  <meta name="description" content="Site vitrine officiel de Tozeur Experience : découvrez Tozeur, ses oasis de montagne (Chebika, Tamerza, Midès), ses dunes sous la Voie Lactée, ses circuits en 4x4, quads et vélos." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <!-- Typographies Éditoriales Haut de Gamme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              50: '#FAF8F4',
+              100: '#F4EFE6',
+              200: '#EADFCF',
+              300: '#DCCBB5',
+              800: '#3D2D20',
+              900: '#241810',
+            },
+            ochre: {
+              DEFAULT: '#C07026',
+              hover: '#A35B19',
+              light: '#F5E7D8',
+            },
+            oasisGreen: {
+              DEFAULT: '#1B4533',
+              dark: '#112E21',
+              soft: '#EAF1ED',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#F8F5EE] text-[#241810]">
+
+  <!-- =========================================================================
+       1. TOP BAR ÉPURÉE
+       ========================================================================= -->
+  <aside class="border-b border-[#241810]/5 text-xs text-stone-600 py-2.5 px-4 sm:px-8 bg-[#F4EFE6]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-6">
+        <span class="tracking-wide">Tozeur, Sud Tunisien</span>
+        <span class="text-stone-300 hidden sm:inline">|</span>
+        <span class="tracking-wide text-stone-500">Agence ouverte 7j/7 — 08h00 à 20h00</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+21654467632" class="hover:text-[#C07026] transition-colors font-medium">
+          +216 54 467 632
+        </a>
+        <span class="text-stone-300">|</span>
+        <a href="mailto:tozeur.experience@gmail.com" class="hover:text-[#C07026] transition-colors">
+          tozeur.experience@gmail.com
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. NAVIGATION MINIMALISTE
+       ========================================================================= -->
+  <header id="main-nav" class="sticky top-0 z-40 nav-minimal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Identité / Logo -->
+        <a href="#hero" class="flex items-center gap-3 text-decoration-none group">
+          <div class="w-10 h-11 overflow-hidden rounded bg-white p-0.5 border border-stone-200 shadow-sm flex items-center justify-center">
+            <img 
+              src="assets/logo.jpg" 
+              alt="Logo Tozeur Experience" 
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif text-lg font-bold tracking-wider leading-none text-[#241810]">
+              TOZEUR
+            </span>
+            <span class="text-[9px] font-semibold tracking-[0.25em] text-[#C07026] uppercase mt-0.5">
+              EXPÉRIENCE
+            </span>
+          </div>
+        </a>
+
+        <!-- Liens Bureau -->
+        <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider uppercase text-stone-700">
+          <a href="#about" class="hover:text-[#C07026] transition-colors">L'Esprit</a>
+          <a href="#experiences" class="hover:text-[#C07026] transition-colors">Activités</a>
+          <a href="#events" class="hover:text-[#C07026] transition-colors">Événements</a>
+          <a href="#gallery" class="hover:text-[#C07026] transition-colors">Photothèque</a>
+          <a href="#contact" class="hover:text-[#C07026] transition-colors">Contact & Accès</a>
+        </nav>
+
+        <!-- CTA Droite -->
+        <div class="hidden lg:flex items-center gap-4">
+          <a 
+            href="#contact" 
+            class="btn-primary"
+          >
+            Nous trouver à Tozeur
+          </a>
+        </div>
+
+        <!-- Menu Mobile -->
+        <button 
+          id="menu-toggle" 
+          aria-label="Menu de navigation" 
+          class="md:hidden p-2 text-[#241810]"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Tiroir Mobile -->
+    <div id="mobile-drawer" class="hidden md:hidden bg-[#F8F5EE] border-b border-stone-200 px-6 py-6 space-y-4">
+      <a href="#about" class="mobile-link block text-sm font-serif font-semibold text-stone-800">L'Esprit de l'Agence</a>
+      <a href="#experiences" class="mobile-link block text-sm font-serif font-semibold text-stone-800">Activités & Circuits</a>
+      <a href="#events" class="mobile-link block text-sm font-serif font-semibold text-stone-800">Événements & Sur-Mesure</a>
+      <a href="#gallery" class="mobile-link block text-sm font-serif font-semibold text-stone-800">Photothèque Saharienne</a>
+      <a href="#contact" class="mobile-link block text-sm font-serif font-semibold text-stone-800">Contact & Accès (Plan)</a>
+      <div class="pt-2">
+        <a 
+          href="#contact" 
+          class="btn-primary w-full text-center"
+        >
+          Plan d'Accès
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. HERO SECTION — THÉMATIQUE ASTRONOMIE & CIEL SAHARIEN
+       ========================================================================= -->
+  <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <!-- Photographie astronomique : Voie Lactée et nébuleuses au-dessus des dunes sahariennes -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=2400&q=85" 
+        alt="Astronomie dans le désert de Tozeur — Ciel étoilé et Voie Lactée" 
+        class="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.1]" 
+      />
+      <!-- Dégradé sombre laissant briller les étoiles -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1F1610] via-black/35 to-black/45"></div>
+    </div>
+
+    <!-- Contenu Central Hero -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-20 text-white">
+      
+      <p class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-amber-200/90 mb-4 tracking-wide font-normal">
+        Vivez l'essence de Tozeur
+      </p>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-[1.12] text-white">
+        L'Aventure Saharienne <br />
+        sous la Voie Lactée
+      </h1>
+
+      <div class="w-16 h-px bg-amber-200/50 mx-auto my-6"></div>
+
+      <p class="text-sm sm:text-base text-stone-200 max-w-xl mx-auto leading-relaxed font-light">
+        Sous l’un des ciels astronomiques les plus purs au monde. Excursions en 4x4, observation des étoiles dans les dunes, oasis de montagne de Chebika, quads et balades à vélo dans la palmeraie.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#experiences" class="btn-primary w-full sm:w-auto">
+          Découvrir les activités
+        </a>
+        <a 
+          href="#contact" 
+          class="btn-secondary text-white border-white/40 hover:bg-white hover:text-stone-900 w-full sm:w-auto"
+        >
+          Venir à l'agence & Plan
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Mention discrète bas de hero -->
+    <div class="absolute bottom-6 inset-x-0 z-10 text-center text-[11px] uppercase tracking-widest text-stone-300 font-light hidden sm:block">
+      Tozeur · Ciel Nocturne du Grand Erg · Chott El Djerid · Chebika · Ong Jemel
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. SECTION À PROPOS — L'ESPRIT DE TOZEUR
+       ========================================================================= -->
+  <section id="about" class="py-24 sm:py-32 border-b border-[#241810]/5">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Colonne Gauche : Titre et Citation -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs uppercase tracking-loose text-[#C07026] font-semibold block">
+            L'Âme du Djerid
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#241810] leading-tight">
+            Entre le silence des sables et la mémoire des oasis.
+          </h2>
+          <p class="font-serif italic text-lg sm:text-xl text-stone-600 leading-relaxed pt-2">
+            « Nous sommes nés dans cette lumière, entre le vert profond de 200 000 dattiers et les horizons infinis du Grand Erg. Notre vocation est de vous en ouvrir les portes avec sincérité. »
+          </p>
+          <div class="pt-4 text-xs tracking-wider uppercase text-stone-400">
+            — L'Équipe Tozeur Experience
+          </div>
+        </div>
+
+        <!-- Colonne Droite : Récit -->
+        <div class="lg:col-span-7 space-y-6 text-stone-700 leading-relaxed text-sm sm:text-base">
+          <p>
+            Implantée au cœur de Tozeur, face au <em>Zoo du Sahara</em>, l’agence <strong>Tozeur Experience</strong> est animée par des professionnels natifs du Djerid. Loin du tourisme de masse précipité, nous partageons la beauté brute de notre région à travers des excursions authentiques et respectueuses.
+          </p>
+          <p class="text-stone-600">
+            Chaque itinéraire est pensé pour vous immerger au plus près des éléments : le souffle du vent sur les dunes dorées de Nefta, la fraîcheur des cascades de montagne à Chebika et Tamerza, ou la douceur ombragée des sentiers de la vieille palmeraie.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-stone-200">
+            <div>
+              <span class="font-serif text-lg font-bold text-[#241810] block">Guides natifs</span>
+              <p class="text-xs text-stone-500 mt-1">Enfants du pays connaissant intimement les pistes et l'histoire locale.</p>
+            </div>
+            <div>
+              <span class="font-serif text-lg font-bold text-[#241810] block">Équipements révisés</span>
+              <p class="text-xs text-stone-500 mt-1">Flotte 4x4 tout-terrain spacieuse, quads entretenus et VTT adaptés.</p>
+            </div>
+            <div>
+              <span class="font-serif text-lg font-bold text-[#241810] block">Accueil continu</span>
+              <p class="text-xs text-stone-500 mt-1">Boutique physique ouverte 7j/7 pour vous renseigner et vous orienter.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Diptyque photographique réel de l'agence -->
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="h-80 sm:h-96 rounded-lg overflow-hidden bg-stone-100">
+          <img 
+            src="assets/flag-banner.jpg" 
+            alt="Agence Tozeur Experience — Boutique extérieure" 
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+        <div class="h-80 sm:h-96 rounded-lg overflow-hidden bg-stone-100">
+          <img 
+            src="assets/store-inside.jpg" 
+            alt="Accueil et vélos de Tozeur Experience" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. ACTIVITÉS & CIRCUITS (VITRINE FRONTEND)
+       ========================================================================= -->
+  <section id="experiences" class="py-24 sm:py-32 bg-[#F4EFE6] border-b border-[#241810]/5">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <!-- En-tête -->
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs uppercase tracking-loose text-[#C07026] font-semibold block mb-2">
+          Catalogue des Activités
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#241810] leading-tight">
+          Explorer Tozeur et le Sahara
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Excursions quotidiennes au départ de Tozeur. Cliquez sur une activité pour consulter le déroulement détaillé du programme.
+        </p>
+
+        <!-- Onglets Minimalistes -->
+        <div class="mt-8 flex flex-wrap gap-2 sm:gap-4 border-b border-stone-300 pb-2">
+          <button class="tab-minimal exp-tab active" data-filter="all">Toutes</button>
+          <button class="tab-minimal exp-tab" data-filter="oasis">Oasis de montagne</button>
+          <button class="tab-minimal exp-tab" data-filter="desert">4x4 & Star Wars</button>
+          <button class="tab-minimal exp-tab" data-filter="quad">Quads dans les dunes</button>
+          <button class="tab-minimal exp-tab" data-filter="velo">Vélo & Palmeraie</button>
+          <button class="tab-minimal exp-tab" data-filter="bivouac">Bivouac & Astronomie</button>
+        </div>
+      </div>
+
+      <!-- Grille dynamique des expériences -->
+      <div id="experiences-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendu dynamique via js/main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. ÉVÉNEMENTS & PRESTATIONS SUR-MESURE (VITRINE SANS FORMULAIRE)
+       ========================================================================= -->
+  <section id="events" class="py-24 sm:py-32 border-b border-[#241810]/5 bg-[#F8F5EE]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs uppercase tracking-loose text-[#C07026] font-semibold block mb-2">
+          Événements & Sur-Mesure
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#241810] leading-tight">
+          Animations touristiques et projets spéciaux
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Grâce à notre ancrage local et notre flotte de véhicules, nous accompagnons les groupes, les professionnels et les voyageurs dans la réalisation de leurs projets dans le Sud Tunisien.
+        </p>
+      </div>
+
+      <!-- 4 Blocs de Prestations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-[#C07026] font-bold block mb-2">Entreprises</span>
+            <h3 class="font-serif text-xl font-bold text-[#241810]">Séminaires & Team Building</h3>
+            <p class="text-stone-600 text-xs mt-3 leading-relaxed">
+              Organisation de rallyes d’orientation en 4x4, défis d'équipe dans les dunes et soirées nomades sous tentes bédouines privatisées.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-stone-100 mt-6 text-[11px] text-stone-500 font-medium">
+            Capacité d'accueil groupe jusqu'à 200 personnes
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-[#1B4533] font-bold block mb-2">Célébrations</span>
+            <h3 class="font-serif text-xl font-bold text-[#241810]">Mariages & Soirées Nomades</h3>
+            <p class="text-stone-600 text-xs mt-3 leading-relaxed">
+              Scénographie saharienne aux flambeaux, dîners traditionnels cuits sous la braise, musiciens locaux et convivialité sous les étoiles.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-stone-100 mt-6 text-[11px] text-stone-500 font-medium">
+            Cadre exclusif et intimiste dans les dunes
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-[#C07026] font-bold block mb-2">Cinéma & Média</span>
+            <h3 class="font-serif text-xl font-bold text-[#241810]">Tournages & Productions</h3>
+            <p class="text-stone-600 text-xs mt-3 leading-relaxed">
+              Repérage de décors naturels (héritage Star Wars et Le Patient Anglais), logistique tout-terrain, transport d’équipes et autorisations locales.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-stone-100 mt-6 text-[11px] text-stone-500 font-medium">
+            Assistance technique et chauffeurs expérimentés
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-[#1B4533] font-bold block mb-2">Particuliers</span>
+            <h3 class="font-serif text-xl font-bold text-[#241810]">Circuits Dédiés Familles</h3>
+            <p class="text-stone-600 text-xs mt-3 leading-relaxed">
+              Itinéraires conçus selon vos envies : étapes adaptées aux enfants, temps libre au fil de l’eau à Chebika et haltes photographiques spontanées.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-stone-100 mt-6 text-[11px] text-stone-500 font-medium">
+            Rythme entièrement libre et personnalisé
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Encart informatif épuré -->
+      <div class="mt-12 bg-white p-8 rounded-lg border border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h4 class="font-serif text-lg font-bold text-[#241810]">Vous organisez un voyage spécial ou un projet de groupe ?</h4>
+          <p class="text-xs text-stone-600 mt-1">Venez échanger avec nous à l'agence de Tozeur ou retrouvez nos coordonnées complètes ci-dessous.</p>
+        </div>
+        <a href="#contact" class="btn-primary text-xs whitespace-nowrap">
+          Voir le plan & coordonnées
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. PHOTOTHÈQUE SAHARIENNE & LIGHTBOX
+       ========================================================================= -->
+  <section id="gallery" class="py-24 sm:py-32 bg-[#1F1610] text-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs uppercase tracking-loose text-amber-300 font-semibold block mb-2">
+          Photothèque
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+          Regards sur le Djerid & le Ciel Nocturne
+        </h2>
+        <p class="text-stone-400 text-sm mt-3 leading-relaxed">
+          Instantanés de terrain capturés lors de nos expéditions dans les oasis, sur le lac salé et sous la voûte céleste du Grand Erg.
+        </p>
+
+        <!-- Filtres galerie -->
+        <div class="mt-6 flex flex-wrap gap-4 text-xs text-stone-400">
+          <button class="gallery-tab active text-white border-b border-amber-300 pb-1" data-filter="all">Toutes</button>
+          <button class="gallery-tab hover:text-white transition-colors" data-filter="astronomie">Astronomie & Nuit</button>
+          <button class="gallery-tab hover:text-white transition-colors" data-filter="desert">Désert & Dunes</button>
+          <button class="gallery-tab hover:text-white transition-colors" data-filter="oasis">Oasis de montagne</button>
+          <button class="gallery-tab hover:text-white transition-colors" data-filter="sensations">Quads</button>
+          <button class="gallery-tab hover:text-white transition-colors" data-filter="culture">Palmeraie</button>
+        </div>
+      </div>
+
+      <!-- Grille photographique -->
+      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Rendu dynamique via js/main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. CONTACT, LOCALISATION & CARTE GOOGLE MAPS (FRONTEND PUR SANS FORMULAIRE)
+       ========================================================================= -->
+  <section id="contact" class="py-24 sm:py-32 bg-[#F8F5EE]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <!-- En-tête -->
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs uppercase tracking-loose text-[#C07026] font-semibold block mb-2">
+          Localisation & Accès
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#241810] leading-tight">
+          Rencontrer l'équipe à Tozeur
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Notre agence physique vous accueille 7 jours sur 7 en face du Zoo du Sahara, à l'entrée de la palmeraie historique de Tozeur.
+        </p>
+      </div>
+
+      <!-- 3 Cartes de coordonnées claires -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <div class="bg-white p-8 rounded-lg border border-stone-200 shadow-sm space-y-2">
+          <span class="text-xs uppercase tracking-wider text-stone-400 font-semibold block">Adresse physique</span>
+          <h3 class="font-serif text-xl font-bold text-[#241810]">Boutique Tozeur Experience</h3>
+          <p class="text-xs text-stone-600 leading-relaxed pt-1">
+            En face du Zoo du Sahara, Zone Touristique<br />
+            Tozeur 2200, Tunisie
+          </p>
+          <div class="pt-3 text-[11px] text-[#1B4533] font-semibold">
+            Ouvert du lundi au dimanche : 08h00 – 20h00
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg border border-stone-200 shadow-sm space-y-2">
+          <span class="text-xs uppercase tracking-wider text-stone-400 font-semibold block">Ligne directe</span>
+          <h3 class="font-serif text-xl font-bold text-[#241810]">Téléphone & WhatsApp</h3>
+          <a href="tel:+21654467632" class="text-base font-semibold text-[#C07026] hover:underline block pt-1">
+            +216 54 467 632
+          </a>
+          <div class="pt-3 text-[11px] text-stone-500">
+            Permanence 7j/7 pour les voyageurs à Tozeur
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg border border-stone-200 shadow-sm space-y-2">
+          <span class="text-xs uppercase tracking-wider text-stone-400 font-semibold block">Courriel & Réseaux</span>
+          <h3 class="font-serif text-xl font-bold text-[#241810]">Contact Numérique</h3>
+          <a href="mailto:tozeur.experience@gmail.com" class="text-xs text-stone-700 hover:text-[#C07026] block pt-1">
+            tozeur.experience@gmail.com
+          </a>
+          <div class="pt-3 text-[11px] text-stone-500">
+            Instagram, Facebook, TikTok : <strong>@tozeur.experience</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- =========================================================================
+           CARTE GOOGLE MAPS INTÉGRÉE
+           ========================================================================= -->
+      <div class="bg-white p-6 sm:p-8 rounded-lg border border-stone-200 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-[#C07026] font-semibold block">Plan d'Accès</span>
+            <h3 class="font-serif text-2xl font-bold text-[#241810]">
+              Emplacement exact sur le plan de Tozeur
+            </h3>
+            <p class="text-xs text-stone-500 mt-0.5">
+              En face du Zoo du Sahara, Tozeur, Sud Tunisien
+            </p>
+          </div>
+          <a 
+            href="https://maps.google.com/?q=Zoo+du+Sahara+Tozeur+Tunisie" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="link-editorial text-xs text-[#241810] hover:text-[#C07026] self-start sm:self-auto"
+          >
+            Ouvrir dans Google Maps →
+          </a>
+        </div>
+
+        <!-- Conteneur iframe Map responsive -->
+        <div class="w-full h-96 sm:h-[420px] rounded overflow-hidden bg-stone-100 border border-stone-200 relative">
+          <iframe 
+            title="Plan d'accès Tozeur Experience"
+            src="https://maps.google.com/maps?q=Zoo+du+Sahara,+Tozeur,+Tunisie&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <!-- Repères kilométriques depuis l'agence -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-stone-600 pt-6 border-t border-stone-100">
+          <div>
+            <span class="font-semibold text-stone-900 block font-serif text-sm">Aéroport Tozeur-Nefta</span>
+            <span class="text-stone-500">10 minutes en voiture</span>
+          </div>
+          <div>
+            <span class="font-semibold text-stone-900 block font-serif text-sm">Chott El Djerid</span>
+            <span class="text-stone-500">25 minutes en voiture</span>
+          </div>
+          <div>
+            <span class="font-semibold text-stone-900 block font-serif text-sm">Oasis de Chebika</span>
+            <span class="text-stone-500">50 minutes en 4x4</span>
+          </div>
+          <div>
+            <span class="font-semibold text-stone-900 block font-serif text-sm">Star Wars Ong Jemel</span>
+            <span class="text-stone-500">40 minutes en 4x4</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. PIED DE PAGE MINIMALISTE
+       ========================================================================= -->
+  <footer class="bg-[#1F1610] text-stone-400 py-16 border-t border-stone-800 text-xs">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-12 border-b border-stone-800">
+        <div>
+          <span class="font-serif text-xl font-bold tracking-wider text-white block">
+            TOZEUR EXPERIENCE
+          </span>
+          <span class="text-stone-400 font-light mt-1 block">
+            Site vitrine officiel — Agence d'excursions, réceptif saharien & animations touristiques
+          </span>
+        </div>
+        <div class="flex items-center gap-6 text-stone-300">
+          <a href="#about" class="hover:text-white transition-colors">L'Esprit</a>
+          <a href="#experiences" class="hover:text-white transition-colors">Activités</a>
+          <a href="#events" class="hover:text-white transition-colors">Événements</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact & Plan</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
+        <p>© 2026 Tozeur Experience. Tous droits réservés. Tozeur, Sud Tunisien.</p>
+        <p class="font-serif italic text-stone-400 text-sm">Vivez l'essence de Tozeur</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       10. MODALE ACTIVITÉ (Consultation pure du programme)
+       ========================================================================= -->
+  <div 
+    id="experience-modal" 
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+    onclick="if(event.target === this) closeExperienceModal()"
+  >
+    <div 
+      id="modal-content-area" 
+      class="modal-window bg-white w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden relative"
+    >
+      <!-- Injecté dynamiquement par openExperienceModal() dans js/main.js -->
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       11. LIGHTBOX PHOTO
+       ========================================================================= -->
+  <div 
+    id="lightbox-modal" 
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
+    onclick="if(event.target === this) closeLightbox()"
+  >
+    <button 
+      onclick="closeLightbox()" 
+      class="absolute top-6 right-6 text-white text-2xl font-light hover:text-amber-300 transition-colors"
+      aria-label="Fermer"
+    >
+      ✕
+    </button>
+    <div class="max-w-4xl w-full flex flex-col items-center">
+      <img 
+        id="lightbox-image" 
+        src="" 
+        alt="" 
+        class="max-h-[75vh] w-auto max-w-full rounded shadow-xl object-contain" 
+      />
+      <div class="text-center mt-4 text-white">
+        <h4 id="lightbox-caption-title" class="font-serif text-lg font-bold text-amber-200"></h4>
+        <p id="lightbox-caption-text" class="text-xs text-stone-400 mt-1 max-w-md mx-auto"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Principal -->
+  <script src="js/main.js"></script>
+</body>
+</html>
